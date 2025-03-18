@@ -29,8 +29,8 @@ public class SecurityConfigurations {
                         .authorizeHttpRequests(req -> {
                             req
                                     .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                                    .requestMatchers(HttpMethod.DELETE, "/medicos").hasRole("ADMIN")
-                                    .requestMatchers(HttpMethod.PUT, "/medicos").hasRole("ADMIN");
+                                    .requestMatchers(HttpMethod.DELETE, "/medicos").hasRole("USER")
+                                    .requestMatchers(HttpMethod.PUT, "/medicos").hasRole("USER");
                             req.anyRequest().authenticated();
                         })
                         .addFilterBefore(secutiryFilter, UsernamePasswordAuthenticationFilter.class)
